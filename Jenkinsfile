@@ -43,16 +43,12 @@ pipeline {
         
         
         stage ('Deployment Stage') {
-            when {
-              expression {
-                currentBuild.result == null || currentBuild.result == 'SUCCESS' 
-              }
-            }
             steps {
-                sh 'make publish'
+                withMaven(maven : 'Apache Maven 3.5.2') {
+                    sh 'mvn install'
                 }
             }
         }
     }
-
+}
 
