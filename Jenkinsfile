@@ -32,6 +32,16 @@ pipeline {
         }
         
         
+        stage ('Building and Integrating Sonar') {
+
+            steps {
+                withMaven(maven : 'Apache Maven 3.5.2') {
+                    sh './gradlew clean sonarqube'
+                }
+            }
+        }
+        
+        
         stage ('Deployment Stage') {
             steps {
                 withMaven(maven : 'Apache Maven 3.5.2') {
