@@ -11,7 +11,8 @@ pipeline {
             }
         }
         
-
+        agent any
+        
         stage ('Testing Stage') {
 
             steps {
@@ -21,6 +22,7 @@ pipeline {
             }
         }
         
+        agent slave2
         
         stage ('Build on Slave Stage') {
 
@@ -30,7 +32,8 @@ pipeline {
                 }
             }
         }
-
+        
+        agent any
 
         stage ('Deployment Stage') {
             steps {
