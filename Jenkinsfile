@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { label 'mavenlabel' }
 
     stages {
         stage ('Compile Stage') {
@@ -25,7 +25,7 @@ pipeline {
         stage ('Build on Slave Stage') {
 
             steps {
-                withLabels(label : 'mavenlabel') {
+                withMaven(maven : 'Apache Maven 3.5.2') {
                     sh 'mvn package'
                 }
             }
