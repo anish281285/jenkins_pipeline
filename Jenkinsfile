@@ -26,7 +26,7 @@ pipeline {
 
             steps {
                 withMaven(maven : 'Apache Maven 3.5.2') {
-                    withLabels(label : 'javalabel, mavenlabel') {
+                withLabels(label : 'javalabel, mavenlabel') {
                     sh 'mvn package'
                 }
             }
