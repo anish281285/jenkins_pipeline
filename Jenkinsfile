@@ -11,8 +11,7 @@ pipeline {
             }
         }
         
-        agent any
-        
+            
         stage ('Testing Stage') {
 
             steps {
@@ -22,8 +21,7 @@ pipeline {
             }
         }
         
-        agent slave2
-        
+                
         stage ('Build on Slave Stage') {
 
             steps {
@@ -33,8 +31,7 @@ pipeline {
             }
         }
         
-        agent any
-
+        
         stage ('Deployment Stage') {
             steps {
                 withMaven(maven : 'Apache Maven 3.5.2') {
