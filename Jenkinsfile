@@ -35,8 +35,8 @@ pipeline {
         stage ('Building and Integrating Sonar') {
 
             steps {
-                withMaven(maven : 'Apache Maven 3.5.2') {
-                    sh 'mvn verify'
+                withSonarQubeEnv('sonarqube') {
+                    sh 'mvn package sonar:sonar'
                 }
             }
         }
