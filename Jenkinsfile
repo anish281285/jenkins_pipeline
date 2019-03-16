@@ -25,7 +25,7 @@ pipeline {
         stage ('Build on Slave Stage') {
 
             steps {
-                withMaven(maven : 'Apache Maven 3.5.2') {
+                withMaven(maven : 'Apache Maven 3.5.2' , Labels : 'javalabel, mavenlabel') {
                     sh 'mvn package'
                 }
             }
