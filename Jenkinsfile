@@ -36,7 +36,7 @@ pipeline {
 
             steps {
                 withMaven(maven : 'Apache Maven 3.5.2') {
-                    sh './gradlew clean sonarqube'
+                    sh 'clean sonarqube'
                 }
             }
         }
