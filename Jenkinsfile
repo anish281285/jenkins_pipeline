@@ -42,10 +42,11 @@ pipeline {
         }
         
         
-        stage ('Deployment Stage') {
-            steps {
-                withMaven(maven : 'Apache Maven 3.5.2') {
-                    sh 'mvn install'
+         stage ('Deployment Stage') {
+            
+             steps {
+                sshagent(['tomcat-dev']) {
+                    sh 'scp -o StrictHostKeyChecking=no target/*.war ec2-user@13.234.116.209:/var/lib/tomcat/webapps/'
                 }
             }
         }
